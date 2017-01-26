@@ -1,0 +1,47 @@
+package blabla;
+
+public class Main {
+
+public static void main(String[] args) {
+	Atletiek atletiek = new Atletiek();
+	atletiek.tienkampstarten();
+
+class Atletiek {
+
+	void tienkampstarten() {
+		System.out.println("We gaan speerwerpen");
+		Speerwerpen speer = new Speerwerpen();
+		int a= 46;				// waarde a kan je vullen door bijvoorbeeld math.random berekeningen op los te laten
+		speer.speer = new Speer(a);		// de waarde van a in speer speer new speer over naar class Speer
+		try{
+			speer.werpen();
+		}
+		catch(Exception e){
+			System.out.println("ik ga speer kopen");
+		}
+		finally{
+			System.out.println("in Finally aanwezig");
+		}
+	}
+}
+
+class Speerwerpen {
+	Speer speer;
+	void werpen() throws GeenSpeerException {
+		if (speer == null) {
+			throw new GeenSpeerException();
+		} else {
+			System.out.println("Je hebt " + speer + " geworpen, da's niet best"); 	// deze regel mocht ik niet van je uitmarkeren, maar nu?
+												// moet ik deze regel gebruiken om de werpafstand te publiceren?														// hoe dan? heb al van alles geprobeerd
+		}
+	}
+}
+
+class GeenSpeerException extends Exception{
+}
+
+class Speer {
+	Speer(int werpafstand){			// hier de waarde a van speer speer new speer
+		System.out.println("Je hebt " + werpafstand + " meter geworpen, gaat lekker");
+	}
+}
